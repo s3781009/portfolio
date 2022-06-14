@@ -4,13 +4,21 @@ import location from './assets/location.svg';
 import github from './assets/github.svg';
 import linkedin from './assets/linkedin.svg';
 import resume from './assets/resume.svg';
-import {motion} from 'framer-motion';
+import {motion, useAnimation} from 'framer-motion';
+import {useInView} from "react-intersection-observer";
+import {useEffect} from "react";
 
 function App() {
+    const animationSlideIn = useAnimation();
+    const {inView, entry, ref} = useInView();
+    let num = 0;
 
-    const selectAboutItem =()=>{
-
+    if (inView) {
+        animationSlideIn.start({
+            x: 0,
+        }).then(r => num += 1);
     }
+
     return (
         <div className="App">
             <div className="col">
@@ -41,7 +49,7 @@ function App() {
                                 <motion.div whileHover={{y: -15}} className="link-col">
                                     <motion.img initial={{y: -10000}}
                                                 transition={{delay: 1.5, type: 'tween', duration: 1}} animate={{y: 0}}
-                                                 className="icon" src={linkedin} alt={""}/>
+                                                className="icon" src={linkedin} alt={""}/>
                                     <div>LinkedIn</div>
                                 </motion.div>
                                 <motion.div whileHover={{y: -15}} className="link-col">
@@ -59,10 +67,23 @@ function App() {
             <div className="about-container">
                 <div className="about-me">
                     <div className="about-me-title"> About me.</div>
-                    <div className="scroller">
-                        <div>Who am I?</div>
-                        <div>Skills/ experience</div>
-                        <div>Interests and Hobbies</div>
+                    <div ref={ref} className="scroller">
+                        <motion.div whileHover={{scale: 1.2, color: "#33a8e5"}}>
+                            <motion.div initial={{x: -500}} transition={{delay: 0.5, type: "tween"}}
+                                        animate={animationSlideIn}>Who am I?
+                            </motion.div>
+                        </motion.div>
+                        <motion.div whileHover={{scale: 1.2, color: "#33a8e5"}}>
+                            <motion.div initial={{x: -500}} transition={{delay: 1, type: "tween"}}
+                                        animate={animationSlideIn}>Skills/ experience
+                            </motion.div>
+                        </motion.div>
+                        <motion.div whileHover={{scale: 1.2, color: "#33a8e5"}}>
+                            <motion.div initial={{x: -500}}
+                                        transition={{delay: 1.5, type: "tween"}} animate={animationSlideIn}>Interests
+                                and Hobbies
+                            </motion.div>
+                        </motion.div>
                     </div>
                 </div>
             </div>
@@ -76,7 +97,14 @@ function App() {
                         <div className="timeline-circle"></div>
                         <div className="timeline-bar"></div>
                     </div>
-                    <div className="projects-title">Projects</div>
+                    <div className="align-text-left">
+                        <div className="projects-title">Projects</div>
+                        <div className="text-body"> This is a timeline of all my major projects since I first started
+                            this amazing journey into software development.
+                        </div>
+                    </div>
+
+
                 </div>
 
             </div>

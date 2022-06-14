@@ -102,13 +102,14 @@
 .about-container{
   height: 50vh;
   width: 100%;
-  background: linear-gradient(180deg, #987559 0%, #ffffff 100%);
+  background-color: whitesmoke;
+  /*background: linear-gradient(180deg, #987559 0%, #ffffff 100%);*/
   box-shadow: 10px 10px 8px 10px #888888;
   margin-bottom: 5vh;
 
 }
 .about-me-title{
-  margin-top: 20vh;
+  margin-top: 15vh;
   font-size: 2rem;
   font-weight: 700;
 }
@@ -135,8 +136,14 @@
   width: 5px;
   background-color: gray;
 }
+.align-text-left{
+  text-align: left;
+}
+.text-body{
+  font-size: 2rem;
+}
 .timeline-container{
-  height: 200vh;
+  height: 400vh;
   background: linear-gradient(180deg, #ffffff 0%, #c4e4ff 100%);
 }
 .timeline-col{
@@ -170,9 +177,10 @@
   color: #7C7C7C;
 }
 .projects-title{
-  margin-top: 30vh;
+  height: 10vh;
+  margin-top: 20vh;
   font-weight: 700;
-  font-size: 6rem;
+  font-size: 4rem;
   text-decoration: underline;
 }
 .scroll::-webkit-scrollbar {
