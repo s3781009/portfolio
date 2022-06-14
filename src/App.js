@@ -6,8 +6,8 @@ import linkedin from './assets/linkedin.svg';
 import resume from './assets/resume.svg';
 import {motion, useAnimation} from 'framer-motion';
 import {useInView} from "react-intersection-observer";
-import Typical from "react-typical";
 import weatherapp from './assets/weatherapp.png';
+import githubBlue from './assets/github-blue.svg';
 
 function App() {
     const animationSlideIn = useAnimation();
@@ -40,7 +40,7 @@ function App() {
                         </motion.div>
                         <div>
                             <div className="row">
-                                <img className="location-icon" src={location} alt={""}/>
+                                <motion.img whileHover={{y:-15}} className="location-icon" src={location} alt={""}/>
                                 <motion.div initial={{opacity: 0}} transition={{delay: 1, duration: 1}}
                                             animate={{opacity: 1}} className="location"> Melbourne, VIC, Australia
                                 </motion.div>
@@ -123,15 +123,14 @@ function App() {
                 </div>
 
             </div>
-            <div className="align-text-left">
-                <div className="projects-title">Projects</div>
-                <div className="text-body">
-                    <Typical loop={Infinity} steps={[
-                        "Timeline of my projects", 1000
-                    ]}/>
-                </div>
-
-            </div>
+            {/*<div className="align-text-left">*/}
+            {/*    <div className="projects-title">Projects</div>*/}
+            {/*    <div className="text-body">*/}
+            {/*        <Typical loop={Infinity} steps={[*/}
+            {/*            "Timeline of my projects", 1000*/}
+            {/*        ]}/>*/}
+            {/*    </div>*/}
+            {/*</div>*/}
             <div className="timeline-container">
                 <div className="margin-container">
                     <div className="timeline-col">
@@ -146,10 +145,25 @@ function App() {
                     <div className="projects-container">
                         <div className="project-item-container">
                             <div className="project-heading"> Weather Forecast</div>
-                            <img src={weatherapp}/>
+                            <div className="flex-row">
+                                <img className="project-image" src={weatherapp} alt={""}/>
+                                <div>
+                                    <div className="subheading"> Tech stack</div>
+                                    <ul>
+                                        <li>React</li>
+                                        <li>Html</li>
+                                        <li>Css</li>
+                                    </ul>
+                                </div>
+                            </div>
                             <div className="project-row">
-                                <a href={"https://s3781009.github.io/weather/"}> Live demo</a>
-                                <div>Source Code</div>
+                                <motion.a whileHover={{opacity: 0.3}} className="link"
+                                          href={"https://s3781009.github.io/weather/"}> Live demo
+                                </motion.a>
+                                <motion.a whileHover={{opacity: 0.3}} href="https://github.com/s3781009/weather"
+                                          className="link">Source Code
+                                </motion.a>
+                                <img src={githubBlue}/>
                             </div>
                             <div className="subheading">Summary</div>
 
