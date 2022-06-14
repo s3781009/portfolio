@@ -8,6 +8,7 @@ import {motion, useAnimation} from 'framer-motion';
 import {useInView} from "react-intersection-observer";
 import weatherapp from './assets/weatherapp.png';
 import githubBlue from './assets/github-blue.svg';
+import {Card} from "@mui/material";
 
 function App() {
     const animationSlideIn = useAnimation();
@@ -76,17 +77,17 @@ function App() {
                         <div className="about-me-title"> About me.</div>
                         <div ref={ref} className="scroller">
                             <motion.div whileHover={{scale: 1.2, color: "#33a8e5"}}>
-                                <motion.div initial={{x: -500}} transition={{delay: 0.5, type: "tween"}}
+                                <motion.div initial={{x: -1000}} transition={{delay: 0.5, type: "tween"}}
                                             animate={animationSlideIn}>Who am I?
                                 </motion.div>
                             </motion.div>
                             <motion.div whileHover={{scale: 1.2, color: "#33a8e5"}}>
-                                <motion.div initial={{x: -500}} transition={{delay: 1, type: "tween"}}
+                                <motion.div initial={{x: -1000}} transition={{delay: 1, type: "tween"}}
                                             animate={animationSlideIn}>Skills/ experience
                                 </motion.div>
                             </motion.div>
                             <motion.div whileHover={{scale: 1.2, color: "#33a8e5"}}>
-                                <motion.div initial={{x: -500}}
+                                <motion.div initial={{x: -1000}}
                                             transition={{delay: 1.5, type: "tween"}}
                                             animate={animationSlideIn}>Interests
                                     and Hobbies
@@ -141,9 +142,8 @@ function App() {
                         <div className="timeline-circle"></div>
                         <div className="timeline-bar"></div>
                     </div>
-
                     <div className="projects-container">
-                        <div className="project-item-container">
+                        <motion.div initial={{x:-2000}} transition={{delay:2, duration:1}} animate={animationSlideIn} className="project-item-container">
                             <div className="project-heading"> Weather Forecast</div>
                             <div className="flex-row">
                                 <img className="project-image" src={weatherapp} alt={""}/>
@@ -172,7 +172,7 @@ function App() {
                                 input. It also renders the additional realtime weather information such as humidity and
                                 wind speed.
                             </div>
-                        </div>
+                        </motion.div>
                     </div>
                 </div>
 
