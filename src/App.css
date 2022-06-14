@@ -33,6 +33,12 @@
   font-size: 2rem;
 
 }
+.timeline-circle{
+  background-color: #3ba6fd;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
 .lastname{
   margin-left: 10px;
  font-weight: 500;
@@ -74,8 +80,7 @@
   height: 20vh;
   align-items: center;
   justify-content: start;
-  background-color: black;
-  box-shadow: black;
+  background-color: white;
 }
 .tech-icon{
   height: 80px;
@@ -85,9 +90,27 @@
   font-weight: 700;
 }
 .about-me{
-  height: 600px;
+  height: 40vh;
   width: 100%;
-  background: linear-gradient(180deg, #6fb1f3 0%, rgba(255, 255, 255, 0) 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  margin-left: 10%;
+  justify-content: space-between;
+
+}
+.about-container{
+  height: 50vh;
+  width: 100%;
+  background: linear-gradient(180deg, #987559 0%, #ffffff 100%);
+  box-shadow: 10px 10px 8px 10px #888888;
+  margin-bottom: 5vh;
+
+}
+.about-me-title{
+  margin-top: 20vh;
+  font-size: 2rem;
+  font-weight: 700;
 }
 .stacked-text{
   display: flex;
@@ -99,11 +122,68 @@
   left: 30%;
   color: white;
 }
+
+#circle {
+  width: 100px;
+  height: 100px;
+  background: #009dff;
+  border-radius: 50%
+}
+.timeline-bar{
+  opacity: 0.7;
+  height: 80vh;
+  width: 5px;
+  background-color: gray;
+}
+.timeline-container{
+  height: 200vh;
+  background: linear-gradient(180deg, #ffffff 0%, #c4e4ff 100%);
+}
+.timeline-col{
+  margin-top: 60vh;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+
+}
+.margin-container{
+  margin-left: 10%;
+  margin-right: 10%;
+  display: flex;
+  flex-direction: row;
+  }
 .title{
   font-family: sans-serif;
   font-size: 4rem;
   font-weight: 700;
 
+}
+.scroller {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: space-between;
+  height: 13vh;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #7C7C7C;
+}
+.projects-title{
+  margin-top: 30vh;
+  font-weight: 700;
+  font-size: 6rem;
+  text-decoration: underline;
+}
+.scroll::-webkit-scrollbar {
+  width: 10px;
+}
+.scroll::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+scroll::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius:10px;
 }
 
 @media (prefers-reduced-motion: no-preference) {

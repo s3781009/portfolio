@@ -7,6 +7,10 @@ import resume from './assets/resume.svg';
 import {motion} from 'framer-motion';
 
 function App() {
+
+    const selectAboutItem =()=>{
+
+    }
     return (
         <div className="App">
             <div className="col">
@@ -28,35 +32,55 @@ function App() {
                                 </motion.div>
                             </div>
                             <div className="row-center">
-                                <div className="link-col">
+                                <motion.div whileHover={{y: -10}} className="link-col">
                                     <motion.img initial={{y: -10000}}
                                                 transition={{delay: 1, type: 'tween', duration: 1}} animate={{y: 0}}
-                                                whileHover={{y: -10}} className="icon" src={github} alt={""}/>
+                                                whileHover={{y: -15}} className="icon" src={github} alt={""}/>
                                     <div>Github</div>
-                                </div>
-                                <div className="link-col">
+                                </motion.div>
+                                <motion.div whileHover={{y: -15}} className="link-col">
                                     <motion.img initial={{y: -10000}}
                                                 transition={{delay: 1.5, type: 'tween', duration: 1}} animate={{y: 0}}
-                                                whileHover={{y: -10}} className="icon" src={linkedin} alt={""}/>
+                                                 className="icon" src={linkedin} alt={""}/>
                                     <div>LinkedIn</div>
-                                </div>
-                                <div className="link-col">
+                                </motion.div>
+                                <motion.div whileHover={{y: -15}} className="link-col">
                                     <motion.img initial={{y: -10000}}
                                                 transition={{delay: 2, type: 'tween', duration: 1}} animate={{y: 0}}
-                                                whileHover={{y: -10}} className="icon" src={resume}
+                                                className="icon" src={resume}
                                                 alt={""}/>
                                     <div>Resume</div>
-                                </div>
+                                </motion.div>
                             </div>
                         </div>
                     </div>
                 </header>
+            </div>
+            <div className="about-container">
+                <div className="about-me">
+                    <div className="about-me-title"> About me.</div>
+                    <div className="scroller">
+                        <div>Who am I?</div>
+                        <div>Skills/ experience</div>
+                        <div>Interests and Hobbies</div>
+                    </div>
+                </div>
+            </div>
+            <div className="timeline-container">
+                <div className="margin-container">
+                    <div className="timeline-col">
+                        <div className="timeline-circle"></div>
+                        <div className="timeline-bar"></div>
+                        <div className="timeline-circle"></div>
+                        <div className="timeline-bar"></div>
+                        <div className="timeline-circle"></div>
+                        <div className="timeline-bar"></div>
+                    </div>
+                    <div className="projects-title">Projects</div>
+                </div>
 
             </div>
 
-            <div className="technologies-bar">
-            </div>
-            <div className="about-me"></div>
         </div>
     );
 }
