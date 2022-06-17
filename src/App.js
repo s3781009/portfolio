@@ -41,7 +41,7 @@ function App() {
                         </motion.div>
                         <div>
                             <div className="row">
-                                <motion.img whileHover={{y:-15}} className="location-icon" src={location} alt={""}/>
+                                <motion.img whileHover={{y: -15}} className="location-icon" src={location} alt={""}/>
                                 <motion.div initial={{opacity: 0}} transition={{delay: 1, duration: 1}}
                                             animate={{opacity: 1}} className="location"> Melbourne, VIC, Australia
                                 </motion.div>
@@ -143,7 +143,8 @@ function App() {
                         <div className="timeline-bar"></div>
                     </div>
                     <div className="projects-container">
-                        <motion.div initial={{x:-2000}} transition={{delay:2, duration:1}} animate={animationSlideIn} className="project-item-container">
+                        <motion.div initial={{x: -2000}} transition={{delay: 2, duration: 1}} animate={animationSlideIn}
+                                    className="project-item-container">
                             <div className="project-heading"> Weather Forecast</div>
                             <div className="flex-row">
                                 <img className="project-image" src={weatherapp} alt={""}/>
