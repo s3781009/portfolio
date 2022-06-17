@@ -1,6 +1,7 @@
 .App {
     text-align: center;
-    height: 200vh;
+    height: 300vh;
+    background-color: #dedede;
 }
 
 .header-image {
@@ -114,11 +115,34 @@
     margin-top: 10%;
 
 }
+.f-col{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.horizontal-separator{
+    height: 4px;
+    width: 100px;
+    border-radius: 5px;
+    background-color: orange;
+    margin-bottom: 5%;
 
+}
+.readmore{
+    font-weight: 550;
+    margin-left: 10%;
+    margin-right: 10%;
+    font-size: 12px;
+    color: #0066ff;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 10%;
+}
 .about-me-body {
     display: flex;
     flex-direction: row;
-    margin-left: 5%;
     width: 70%;
     margin-top: 20%;
 
@@ -130,7 +154,8 @@
 }
 
 .about-me-body-inner {
-    margin-right: 10vh;
+    font-size: large;
+    margin-right: 5vh;
     width: 100%;
     height: 40vh;
     transform: scaleX(-1);
@@ -214,14 +239,42 @@
     height: 30px;
 }
 
+
 .project-image {
-    border-radius: 5px;
-    margin-right: 5%;
-    width: 50%;
-    border: 5px solid #3f3f3f;
-    box-shadow: 5px 5px 5px 0px #888888;
+    position: relative;
+    width: 100%;
+    max-height: 70%;
+    object-fit: cover;
+    border-radius: 0px 0px 5px 5px;
 }
 
+.description{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    top: 50%;
+    left: 20%;
+    z-index: -1;
+    justify-content: space-between;
+}
+.footer{
+    align-self: end;
+    justify-self: end;
+    margin-top: 20%;
+}
+.project-button{
+    position: absolute;
+    font-weight: 700;
+    top: 50%;
+    left: 30%;
+    width: 150px;
+    height: 50px;
+    background-color: #6c6c6c;
+    border: 1px solid orange;
+    border-radius: 4px ;
+}
 .righttop-container {
     justify-content: space-between;
     width: 30vh;
@@ -279,24 +332,24 @@
 }
 
 .project-item-container {
-    margin-left: 10px;
+    position: relative;
     display: flex;
+    border: 2px solid #ababab;
     flex-direction: column;
-    background-color: white;
-    box-shadow: 10px 10px 8px 10px #888888;
-    border-radius: 5px;
-    padding: 5%;
+    background-color: #656565;
+    box-shadow: 6px 6px 2px 5px #888888;
+    /*border-radius: 5px;*/
     text-align: start;
-    margin-top: 20%;
-    height: 60vh;
-    width: 100%;
+    height: 30%;
+    width: 30%;
     /*border: 2px solid #a9a9a9;*/
 }
-
 .project-heading {
-    color: gray;
-    font-size: 2.5rem;
-    font-weight: 600;
+    margin-top: 5%;
+    align-self: center;
+    color: #e19027;
+    font-size: 1.5rem;
+    font-weight: 550;
     margin-bottom: 5%;
 }
 
@@ -304,9 +357,11 @@
     height: 10vh;
     font-weight: 700;
     font-size: 3rem;
-    text-decoration: underline;
+    /*text-decoration: underline;*/
 }
-
+.projects-section{
+    margin-top: 10%;
+}
 .subheading {
     font-size: 2rem;
     color: gray;
@@ -320,10 +375,10 @@
 .project-row {
     margin-top: 10px;
     align-items: center;
-    justify-content: space-between;
-    width: 50%;
+    justify-content: space-around;
     display: flex;
-    margin-bottom: 10px;
+    margin-left: 10%;
+    margin-right: 10%;
     flex-direction: row;
 }
 
@@ -337,7 +392,7 @@
 }
 
 .about-me-body::-webkit-scrollbar-thumb {
-    background: #6cb0e7;
+    background: #008cff;
     border-radius: 10px;
 }
 

@@ -7,12 +7,17 @@ import resume from './assets/resume.svg';
 import {motion, useAnimation} from 'framer-motion';
 import {useInView} from "react-intersection-observer";
 import weatherapp from './assets/weatherapp.png';
+import scrabble from './assets/scrabblepic.png';
 import githubBlue from './assets/github-blue.svg';
 import {Card} from "@mui/material";
+import {Link} from 'react-router';
+import {useEffect, useState} from "react";
 
 function App() {
     const animationSlideIn = useAnimation();
     const {inView, entry, ref} = useInView();
+    const [projectHovered, setProjectHovered] = useState(false);
+
     let num = 0;
 
     if (inView) {
@@ -20,6 +25,25 @@ function App() {
             x: 0,
         }).then(r => num += 1);
     }
+    const animationExpand = useAnimation();
+    const {inView1, entry1, ref1} = useInView();
+
+    if (inView1) {
+        animationExpand.start({
+            width: "80%",
+        }).then(r => console.log(r));
+    }
+
+    let time = new Date().toLocaleTimeString();
+    let [ctime, setCTime] = useState();
+    const updateTime = () => {
+        time = new Date().toLocaleTimeString();
+        setCTime(time);
+    }
+    setInterval(updateTime, 1000);
+    useEffect(() => {
+        console.log("changed")
+    }, [projectHovered]);
 
     return (
         <div className="App">
@@ -45,12 +69,15 @@ function App() {
                                 <motion.div initial={{opacity: 0}} transition={{delay: 1, duration: 1}}
                                             animate={{opacity: 1}} className="location"> Melbourne, VIC, Australia
                                 </motion.div>
+                                <div>{ctime}</div>
                             </div>
                             <div className="row-center">
                                 <motion.div whileHover={{y: -10}} className="link-col">
-                                    <motion.img initial={{y: -10000}}
-                                                transition={{delay: 1, type: 'tween', duration: 1}} animate={{y: 0}}
-                                                whileHover={{y: -15}} className="icon" src={github} alt={""}/>
+                                    <a href="https://github.com/s3781009">
+                                        <motion.img initial={{y: -10000}}
+                                                    transition={{delay: 1, type: 'tween', duration: 1}} animate={{y: 0}}
+                                                    whileHover={{y: -15}} className="icon" src={github} alt={""}/>
+                                    </a>
                                     <div>Github</div>
                                 </motion.div>
                                 <motion.div whileHover={{y: -15}} className="link-col">
@@ -76,17 +103,17 @@ function App() {
                     <div className="about-col">
                         <div className="about-me-title"> About me.</div>
                         <div ref={ref} className="scroller">
-                            <motion.div whileHover={{scale: 1.2, color: "#33a8e5"}}>
+                            <motion.div whileHover={{scale: 1.2, color: "#00a7ff"}}>
                                 <motion.div initial={{x: -1000}} transition={{delay: 0.5, type: "tween"}}
                                             animate={animationSlideIn}>Who am I?
                                 </motion.div>
                             </motion.div>
-                            <motion.div whileHover={{scale: 1.2, color: "#33a8e5"}}>
+                            <motion.div whileHover={{scale: 1.2, color: "#00a3ff"}}>
                                 <motion.div initial={{x: -1000}} transition={{delay: 1, type: "tween"}}
                                             animate={animationSlideIn}>Skills/ experience
                                 </motion.div>
                             </motion.div>
-                            <motion.div whileHover={{scale: 1.2, color: "#33a8e5"}}>
+                            <motion.div whileHover={{scale: 1.2, color: "#00a7ff"}}>
                                 <motion.div initial={{x: -1000}}
                                             transition={{delay: 1.5, type: "tween"}}
                                             animate={animationSlideIn}>Interests
@@ -98,88 +125,68 @@ function App() {
 
                     <div className="about-me-body">
                         <div className="about-me-body-inner">
-                            Hello worlLorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
-                            molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
-                            numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
-                            optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis
-                            obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam
-                            nihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit,
-                            tenetur error, harum nesciunt ipsum debitis quas aliquid. Reprehenderit,
-                            quia. Quo neque error repudiandae fuga? Ipsa laudantium molestias eos
-                            sapiente officiis modi at sunt excepturi expedita sint? Sed quibusdam
-                            recusandae alias error harum maxime adipisci amet laborum. Perspiciatis
-                            minima nesciunt dolorem! Officiis iure rerum voluptates a cumque velit
-                            quibusdam sed amet tempora. Sit laborum ab, eius fugit doloribus tenetur
-                            fugiat, temporibus enim commodi iusto libero magni deleniti quod quam
-                            consequuntur! Commodi minima excepturi repudiandae velit hic maxime
-                            doloremque. Quaerat provident commodi consectetur veniam similique ad
-                            earum omnis ipsum saepe, voluptas, hic voluptates pariatur est explicabo
-                            fugiat, dolorum eligendi quam cupiditate excepturi mollitia maiores labore
-                            suscipit quas? Nulla, placeat. Voluptatem quaerat non architecto ab laudantium
-                            modi minima sunt esse temporibus sint culpa, recusandae aliquam numquam
-                            totam ratione voluptas quod exercitationem fuga. Possimus quis earum veniam
-                            quasi aliquam eligendi, placeat qui corporis!d
+                            <br/>
+                            Hi I'm Ryan Le-Nguyen, a software engineering student with a passion for learning and
+                            improving. Being results oriented and data driven I strive to always better my skills as a
+                            developer through personal projects in addition to my formal education at the Royal
+                            Melbourne Institute of Technology.
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            I am interested in a broad range of software engineering disciplines including
+                            web development (front end and backend), mobile, games and embedded systems.
                         </div>
                     </div>
                 </div>
-
             </div>
-            {/*<div className="align-text-left">*/}
-            {/*    <div className="projects-title">Projects</div>*/}
-            {/*    <div className="text-body">*/}
-            {/*        <Typical loop={Infinity} steps={[*/}
-            {/*            "Timeline of my projects", 1000*/}
-            {/*        ]}/>*/}
-            {/*    </div>*/}
-            {/*</div>*/}
-            <div className="timeline-container">
-                <div className="margin-container">
-                    <div className="timeline-col">
-                        <div className="timeline-circle"></div>
-                        <div className="timeline-bar"></div>
-                        <div className="timeline-circle"></div>
-                        <div className="timeline-bar"></div>
-                        <div className="timeline-circle"></div>
-                        <div className="timeline-bar"></div>
+            <div className="projects-section">
+                <div className=" f-col">
+                    <div ref={ref1} className="projects-title">
+                        My Projects
                     </div>
-                    <div className="projects-container">
-                        <motion.div initial={{x: -2000}} transition={{delay: 2, duration: 1}} animate={animationSlideIn}
-                                    className="project-item-container">
-                            <div className="project-heading"> Weather Forecast</div>
-                            <div className="flex-row">
-                                <img className="project-image" src={weatherapp} alt={""}/>
-                                <div>
-                                    <div className="subheading"> Tech stack</div>
-                                    <ul>
-                                        <li>React</li>
-                                        <li>Html</li>
-                                        <li>Css</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div className="project-row">
-                                <motion.a whileHover={{opacity: 0.3}} className="link"
-                                          href={"https://s3781009.github.io/weather/"}> Live demo
-                                </motion.a>
-                                <motion.a whileHover={{opacity: 0.3}} href="https://github.com/s3781009/weather"
-                                          className="link">Source Code
-                                </motion.a>
-                                <img src={githubBlue}/>
-                            </div>
-                            <div className="subheading">Summary</div>
-
-                            <div> This is an application that allows users to check the weather forecast for the next
-                                few hours, this app is uses the free weather API to make http requests given a city as
-                                input. It also renders the additional realtime weather information such as humidity and
-                                wind speed.
-                            </div>
-                        </motion.div>
-                    </div>
+                    <motion.div transition={{delay: 1}} animate={{width: "80%"}}
+                                className="horizontal-separator"></motion.div>
                 </div>
-
-
             </div>
+            <div className="project-row">
 
+                <motion.div transition={{duration: 0.2}} whileHover={{scale: 1.1, borderColor: "#ffb340"}}
+                            className="project-item-container">
+                    <div onMouseLeave={() => setProjectHovered(false)} onMouseOver={() => setProjectHovered(true)}
+                         className="project-heading">Weather Dashboard
+                    </div>
+                    <motion.button onHover={{backgroundColor: 'orange'}} className="project-button">LEARN MORE
+                    </motion.button>
+                    {!projectHovered ?
+                        <motion.img whileHover={{opacity: 0}} className="project-image" src={weatherapp}/> : null}
+                    <div className="readmore">
+                        {/*<motion.div whileHover={{textDecoration: "underline"}}>Source Code</motion.div>*/}
+                        {/*<motion.div whileHover={{textDecoration: "underline"}}>Live preview</motion.div>*/}
+                        {/*<motion.div whileHover={{textDecoration: "underline"}}>Read more</motion.div>*/}
+                    </div>
+                </motion.div>
+                <motion.div transition={{duration: 0.2}} whileHover={{scale: 1.1, borderColor: "#ffb340"}}
+                            className="project-item-container">
+                    <div onMouseLeave={() => setProjectHovered(false)} onMouseOver={() => setProjectHovered(true)}
+                         className="project-heading">Scrabble Multiplayer
+                    </div>
+                    <motion.button onHover={{backgroundColor: 'orange'}} className="project-button">LEARN MORE
+                    </motion.button>
+                        <motion.img whileHover={{opacity: 0}} className="project-image" src={scrabble}/>
+                    <div className="readmore">
+                        {/*<motion.div whileHover={{textDecoration: "underline"}}>Source Code</motion.div>*/}
+                        {/*<motion.div whileHover={{textDecoration: "underline"}}>Live preview</motion.div>*/}
+                        {/*<motion.div whileHover={{textDecoration: "underline"}}>Read more</motion.div>*/}
+                    </div>
+                </motion.div>
+            </div>
+            <div className="footer">
+                <div className="project-heading">Contact</div>
+                <div>ryanlenguyen2001@gmail.com</div>
+            </div>
         </div>
     );
 }
